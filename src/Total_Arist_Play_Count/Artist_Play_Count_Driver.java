@@ -23,6 +23,7 @@ public class Artist_Play_Count_Driver {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String[] args) throws 
             IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();

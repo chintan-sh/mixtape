@@ -24,8 +24,11 @@ public class Artist_Play_Count_Mapper extends Mapper<Object, Text, Text, IntWrit
         // get artist info
         String[] artistInfo = value.toString().split("\t");
 
+        // cleanup artist name by removing all whitespaces
+        String aName = artistInfo[2] + "\t"; //.replaceAll("\\s+","");
+
         // extract artist name
-        artistName = new Text(artistInfo[2]);
+        artistName = new Text(aName);
         playCount = new IntWritable(Integer.parseInt(artistInfo[3].trim()));
 
         context.write(artistName, playCount);

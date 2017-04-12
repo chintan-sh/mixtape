@@ -31,3 +31,5 @@ public class Artist_Play_Count_Reducer extends Reducer<Text, IntWritable, Text, 
         context.write(key, result);
     }
 }
+
+// Run this command on Linux CLI once results are computed => cat part-r-00000 | sort -t$'\t' -n -k2 -r | head -n 20
