@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Total_Arist_Play_Count;
+package A2_Sum_Play_Count_Per_Artist;
 
 import java.io.IOException;
 import org.apache.hadoop.io.IntWritable;
@@ -31,5 +31,3 @@ public class Artist_Play_Count_Reducer extends Reducer<Text, IntWritable, Text, 
         context.write(key, result);
     }
 }
-
-// Run this command on Linux CLI once results are computed => cat part-r-00000 | sed 's/.*/\L&/; s/[a-z]*/\u&/g' | sort -t$'\t' -n -k2 -r | head -n 20

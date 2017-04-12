@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Total_Arist_Play_Count;
+package A2_Sum_Play_Count_Per_Artist;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
