@@ -21,10 +21,7 @@ public class Total_Artist_Mapper extends Mapper<Object, Text, Text, IntWritable>
 
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         // get artist info
-        String[] artistInfo = value.toString().split("\t");
-
-        // cleanup artist name by removing all whitespaces
-        String aName = artistInfo[2];
+        String aName = value.toString();
 
         // extract artist name
         artistName = new Text(aName);
