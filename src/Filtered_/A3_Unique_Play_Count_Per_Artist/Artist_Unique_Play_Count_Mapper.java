@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package A2_Sum_Play_Count_Per_Artist;
-
-import java.io.IOException;
+package Filtered_.A3_Unique_Play_Count_Per_Artist;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
+import java.io.IOException;
+
 /**
  *
  * @author Chintan
  */
-public class Artist_Play_Count_Mapper extends Mapper<Object, Text, Text, IntWritable> {
+public class Artist_Unique_Play_Count_Mapper extends Mapper<Object, Text, Text, IntWritable> {
     private Text artistName;
-    private IntWritable playCount;
+    private IntWritable one = new IntWritable(1);
 
     // incoming input : user-mboxsha1 \t musicbrainz-artist-id \t artist-name \t plays
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
@@ -29,8 +29,7 @@ public class Artist_Play_Count_Mapper extends Mapper<Object, Text, Text, IntWrit
 
         // extract artist name
         artistName = new Text(aName);
-        playCount = new IntWritable(Integer.parseInt(artistInfo[3].trim()));
 
-        context.write(artistName, playCount);
+        context.write(artistName, one);
     }
 }

@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package A1_Distinct_Artists;
+package Summarized_.A1_Top_20_Most_Popular_Artists;
 
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
@@ -16,9 +15,11 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Distinct_Artist_Mapper extends Mapper<Object, Text, Text, NullWritable> {
+public class Top_20_Most_Popular_Artist_Mapper extends Mapper<Object, Text, Text, IntWritable> {
     private Text artistName;
+    private IntWritable one = new IntWritable(1);
 
+    // incoming input : user-mboxsha1 \t musicbrainz-artist-id \t artist-name \t plays
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         // get artist info
         String[] artistInfo = value.toString().split("\t");
@@ -29,6 +30,6 @@ public class Distinct_Artist_Mapper extends Mapper<Object, Text, Text, NullWrita
         // extract artist name
         artistName = new Text(aName);
 
-        context.write(artistName, NullWritable.get());
+        context.write(artistName, one);
     }
 }

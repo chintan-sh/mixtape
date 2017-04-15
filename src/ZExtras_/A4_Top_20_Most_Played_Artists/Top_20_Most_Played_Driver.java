@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package A5_Top_20_Most_Popular_Artists;
+package ZExtras_.A4_Top_20_Most_Played_Artists;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -20,25 +20,27 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Top_20_Most_Popular_Artist_Driver {
+public class Top_20_Most_Played_Driver {
 
     /**
      * @param args the command line arguments
      */
 
-    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
+    public static void main(String[] args) throws 
+            IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Top 20 most popular artist ");
-        job.setJarByClass(Top_20_Most_Popular_Artist_Driver.class);
+        Job job = Job.getInstance(conf, "Top 20 Most Played Artist");
+        job.setJarByClass(Top_20_Most_Played_Driver.class);
 
-        job.setMapperClass(Top_20_Most_Popular_Artist_Mapper.class);
+        job.setMapperClass(Top_20_Most_Played_Mapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
 
+        //job.setCombinerClass(Top_20_Most_Played_Reducer.class);
         job.setNumReduceTasks(1);
-        job.setReducerClass(Top_20_Most_Popular_Artist_Reducer.class);
+        job.setReducerClass(Top_20_Most_Played_Reducer.class);
         job.setOutputKeyClass(NullWritable.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
 
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));

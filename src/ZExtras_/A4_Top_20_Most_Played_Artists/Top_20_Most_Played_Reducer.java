@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package A5_Top_20_Most_Popular_Artists;
+package ZExtras_.A4_Top_20_Most_Played_Artists;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
@@ -19,38 +19,40 @@ import java.util.TreeMap;
  *
  * @author Chintan
  */
-public class Top_20_Most_Popular_Artist_Reducer extends Reducer<Text, IntWritable, NullWritable, Text> {
+public class Top_20_Most_Played_Reducer extends Reducer<Text, IntWritable, NullWritable, Text> {
     private TreeMap<Integer, String> top20 = new TreeMap<Integer, String>(Collections.reverseOrder());
 
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-        int totalUniquePlayCount = 0;
+        int totalPlayCount = 0;
 
-        // get count and add
-        for (IntWritable uniqueCount : values) {
-            totalUniquePlayCount += uniqueCount.get();
+        // get all play counts for current artist and add them
+        for (IntWritable playCount : values) {
+            totalPlayCount += playCount.get();
         }
 
         //add this artist with its play count to tree map
-        top20.put(totalUniquePlayCount, key.toString());
+        //System.out.println("Inputting this key => " + key);
+        top20.put(totalPlayCount, key.toString());
 
         // if map size has grown > 20 then remove first entry as tree map sorts in ascending order
         if(top20.size() > 20){
             top20.remove(top20.lastKey());
         }
+
     }
 
 
     // Will be called once all keys are parsed
     @Override
     protected void cleanup(Context context) throws IOException, InterruptedException {
-        for(Map.Entry<Integer, String> entry : top20.entrySet()) {
 
+        for(Map.Entry<Integer, String> entry : top20.entrySet()) {
             //Integer key = entry.getKey();
             String value = entry.getValue().substring(0, 1).toUpperCase() + entry.getValue().substring(1);
 
-            // print atop 20 artists
+            // print atop 10 artists
             context.write(NullWritable.get(), new Text(value));
         }
     }
-}
 
+}

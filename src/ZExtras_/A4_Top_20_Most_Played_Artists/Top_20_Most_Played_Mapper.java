@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package A5_Top_20_Most_Popular_Artists;
+package ZExtras_.A4_Top_20_Most_Played_Artists;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -15,21 +15,21 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Top_20_Most_Popular_Artist_Mapper extends Mapper<Object, Text, Text, IntWritable> {
+public class Top_20_Most_Played_Mapper extends Mapper<Object, Text, Text, IntWritable> {
     private Text artistName;
-    private IntWritable one = new IntWritable(1);
+    private IntWritable playCount;
 
     // incoming input : user-mboxsha1 \t musicbrainz-artist-id \t artist-name \t plays
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-        // get artist info
         String[] artistInfo = value.toString().split("\t");
 
-        // cleanup artist name by removing all whitespaces
-        String aName = artistInfo[2] + "\t"; //.replaceAll("\\s+","");
+
+        String aName = artistInfo[2];
 
         // extract artist name
         artistName = new Text(aName);
+        playCount = new IntWritable(Integer.parseInt(artistInfo[3].trim()));
 
-        context.write(artistName, one);
+        context.write(artistName, playCount);
     }
 }

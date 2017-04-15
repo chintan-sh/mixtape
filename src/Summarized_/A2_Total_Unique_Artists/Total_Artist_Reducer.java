@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package A1_Distinct_Artists;
+package Summarized_.A2_Total_Unique_Artists;
 
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -16,10 +15,15 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Distinct_Artist_Reducer extends Reducer<Text, IntWritable, Text, NullWritable> {
-
+public class Total_Artist_Reducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+    private static int count = 0;
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-        context.write(key, NullWritable.get());
+            count = count + 1;
+    }
+
+    @Override
+    protected void cleanup(Context context) throws IOException, InterruptedException {
+        context.write(new Text("Total count"), new IntWritable(count));
     }
 }
 
