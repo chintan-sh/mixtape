@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Summarized_.A4_Total_Unique_Users;
+package Summarized_.A5_Top_20_Traffic_By_Country;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -15,15 +15,15 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Total_Users_Reducer extends Reducer<Text, IntWritable, Text, IntWritable> {
-    private static int count = 0;
+public class Top_20_Traffic_Reducer_2 extends Reducer<Text, IntWritable, Text, IntWritable> {
+    private  int count = 0;
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
-            count = count + 1;
+            for( IntWritable value : values) {
+                count = count + 1;
+            }
+
+            context.write(key, new IntWritable(count));
     }
 
-    @Override
-    protected void cleanup(Context context) throws IOException, InterruptedException {
-        context.write(new Text("Total Count => "), new IntWritable(count));
-    }
 }
 
