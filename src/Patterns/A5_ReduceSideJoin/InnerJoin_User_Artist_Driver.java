@@ -39,6 +39,8 @@ public class InnerJoin_User_Artist_Driver {
         job.setOutputValueClass(Text.class);
         job.setReducerClass(InnerJoin_User_Artist_Reducer.class);
 
+        //job.setNumReduceTasks(10);
+
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         System.exit(job.waitForCompletion(true) ? 0 : 2);
     }
