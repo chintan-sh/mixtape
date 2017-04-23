@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zOther.Filtered_.A4_User_Traffic_By_Country;
+package zOther.ZExtras_.A5_Top_20_Traffic_By_Country;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Total_Traffic_by_Country_Mapper extends Mapper<Object, Text, Text, IntWritable> {
+public class Top_20_Traffic_Mapper extends Mapper<Object, Text, Text, IntWritable> {
     private Text country;
     private IntWritable one = new IntWritable(1);
 

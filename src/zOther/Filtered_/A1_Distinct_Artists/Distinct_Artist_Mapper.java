@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Patterns.A1_Distinct_Artists;
+package zOther.Filtered_.A1_Distinct_Artists;
 
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;

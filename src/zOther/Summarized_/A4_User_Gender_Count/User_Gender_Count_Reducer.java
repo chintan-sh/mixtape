@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Summarized_.A4_User_Gender_Count;
+package zOther.Summarized_.A4_User_Gender_Count;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

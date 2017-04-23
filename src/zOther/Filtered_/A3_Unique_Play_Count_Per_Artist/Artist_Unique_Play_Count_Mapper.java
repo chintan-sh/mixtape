@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Filtered_.A3_Unique_Play_Count_Per_Artist;
+package zOther.Filtered_.A3_Unique_Play_Count_Per_Artist;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

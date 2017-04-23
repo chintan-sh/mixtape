@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Summarized_.A5_User_Partition_By_Country;
+package zOther.Summarized_.A5_User_Partition_By_Country;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

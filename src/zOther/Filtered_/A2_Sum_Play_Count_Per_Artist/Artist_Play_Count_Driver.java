@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Filtered_.A2_Sum_Play_Count_Per_Artist;
+package zOther.Filtered_.A2_Sum_Play_Count_Per_Artist;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;

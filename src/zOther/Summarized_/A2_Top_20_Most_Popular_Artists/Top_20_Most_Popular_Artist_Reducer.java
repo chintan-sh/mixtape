@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Patterns.A2_Top_20_Most_Popular_Artists;
+package zOther.Summarized_.A2_Top_20_Most_Popular_Artists;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;

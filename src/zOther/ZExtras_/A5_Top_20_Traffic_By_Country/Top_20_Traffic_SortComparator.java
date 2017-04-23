@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zOther.Summarized_.A5_User_Partition_By_Country;
+package zOther.ZExtras_.A5_Top_20_Traffic_By_Country;
 
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.WritableComparable;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Summarized_.A1_Total_Unique_Artists;
+package zOther.Summarized_.A1_Total_Unique_Artists;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;

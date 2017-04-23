@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zOther.Filtered_.A4_User_Traffic_By_Country;
+package zOther.ZExtras_.A4_Total_Unique_Users;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -15,18 +15,18 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Total_Traffic_by_Country_Mapper extends Mapper<Object, Text, Text, IntWritable> {
-    private Text country;
+public class Total_Users_Mapper extends Mapper<Object, Text, Text, IntWritable> {
+    private Text userID;
     private IntWritable one = new IntWritable(1);
 
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         // get user info
         String[] userInfo = value.toString().split("\t");
-        String cID = userInfo[3];
+        String uID = userInfo[0];
 
         // extract artist name
-        country = new Text(cID);
+        userID = new Text(uID);
 
-        context.write(country, one);
+        context.write(userID, one);
     }
 }

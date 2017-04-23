@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Filtered_.A4_User_Traffic_By_Country;
+package zOther.Filtered_.A4_User_Traffic_By_Country;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
