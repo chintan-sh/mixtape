@@ -3,30 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Patterns.A2_Top_10;
+package Patterns.A3_Partitioning;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
  * @author Chintan
  */
-public class Top_10_Countries_by_User_Traffic_Mapper extends Mapper<Object, Text, Text, IntWritable> {
-    private Text country;
-    private IntWritable one = new IntWritable(1);
+public class Partition_Users_By_Country_Mapper extends Mapper<Object, Text, Text, Text> {
+    private Text country = new Text();
 
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         // get user info
         String[] userInfo = value.toString().split("\t");
-        String cID = userInfo[3];
+        String userCountryGender = userInfo[3].trim();
 
-        // extract artist name
-        country = new Text(cID);
+        country.set(userCountryGender);
 
-        context.write(country, one);
+        context.write(country, value);
     }
 }

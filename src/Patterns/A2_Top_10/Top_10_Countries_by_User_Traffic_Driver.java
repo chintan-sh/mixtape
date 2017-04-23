@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package zOther.Filtered_.A4_User_Traffic_By_Country;
+package Patterns.A2_Top_10;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Total_Traffic_by_Country_Driver {
+public class Top_10_Countries_by_User_Traffic_Driver {
 
     /**
      * @param args the command line arguments
@@ -28,12 +28,12 @@ public class Total_Traffic_by_Country_Driver {
     public static void main(String[] args) throws 
             IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Total Traffic by Country");
-        job.setJarByClass(Total_Traffic_by_Country_Driver.class);
-        job.setMapperClass(Total_Traffic_by_Country_Mapper.class);
+        Job job = Job.getInstance(conf, "Top 10 Countries by User Traffic");
+        job.setJarByClass(Top_10_Countries_by_User_Traffic_Driver.class);
+        job.setMapperClass(Top_10_Countries_by_User_Traffic_Mapper.class);
 
-        job.setCombinerClass(Total_Traffic_by_Country_Reducer.class);
-        job.setReducerClass(Total_Traffic_by_Country_Reducer.class);
+        job.setCombinerClass(Top_10_Countries_by_User_Traffic_Reducer.class);
+        job.setReducerClass(Top_10_Countries_by_User_Traffic_Reducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
