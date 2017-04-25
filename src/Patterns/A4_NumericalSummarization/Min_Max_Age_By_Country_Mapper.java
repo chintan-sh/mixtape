@@ -33,9 +33,5 @@ public class Min_Max_Age_By_Country_Mapper extends Mapper<Object, Text, Text, In
 
             context.write(country, age);
         }
-//        else{
-//            count++;
-//            System.out.println("Total count " + count);
-//        }
     }
 }

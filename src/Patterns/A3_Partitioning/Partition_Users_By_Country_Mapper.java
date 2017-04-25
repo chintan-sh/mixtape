@@ -27,7 +27,6 @@ public class Partition_Users_By_Country_Mapper extends Mapper<Object, Text, Text
         String userCountryGender = userInfo[3].trim();
 
         country.set(userCountryGender);
-
         context.write(country, value);
     }
 }

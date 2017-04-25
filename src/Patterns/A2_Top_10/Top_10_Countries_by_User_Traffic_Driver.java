@@ -32,7 +32,7 @@ public class Top_10_Countries_by_User_Traffic_Driver {
         job.setJarByClass(Top_10_Countries_by_User_Traffic_Driver.class);
         job.setMapperClass(Top_10_Countries_by_User_Traffic_Mapper.class);
 
-        job.setCombinerClass(Top_10_Countries_by_User_Traffic_Reducer.class);
+        job.setCombinerClass(Top_10_Countries_by_User_Traffic_Combiner.class);
         job.setReducerClass(Top_10_Countries_by_User_Traffic_Reducer.class);
 
         job.setOutputKeyClass(Text.class);
