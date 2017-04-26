@@ -26,7 +26,7 @@ public class InnerJoin_User_Artist_Driver {
      */
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Inner Join Book Data");
+        Job job = Job.getInstance(conf, "Inner Join User/Artist Data");
         job.setJarByClass(InnerJoin_User_Artist_Driver.class);
 
         // pass file 1 to this mapper in Text format
