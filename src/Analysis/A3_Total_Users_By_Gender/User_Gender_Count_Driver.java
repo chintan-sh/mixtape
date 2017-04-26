@@ -28,7 +28,7 @@ public class User_Gender_Count_Driver {
     public static void main(String[] args) throws 
             IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Total Users available on Service");
+        Job job = Job.getInstance(conf, "Genderwise Demography on Service");
         job.setJarByClass(User_Gender_Count_Driver.class);
         job.setMapperClass(User_Gender_Count_Mapper.class);
 
