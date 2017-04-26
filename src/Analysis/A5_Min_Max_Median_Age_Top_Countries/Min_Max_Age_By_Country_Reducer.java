@@ -49,25 +49,15 @@ public class Min_Max_Age_By_Country_Reducer extends Reducer<Text, IntWritable, T
             Collections.sort(list);
 
             // calculating median
-            //System.out.println("List size found for " + key + " is " + list.size() + " and counting observed as " + running_count);
             if(list.size() % 2 == 0){
-                //System.out.println("Count even : " + list.size());
                 median = (list.get((list.size()/2)-1) +  list.get((list.size()/2)))/2;
             }else{
-                //System.out.println("Count odd : " + list.size());
-                //System.out.println("Element to be selected : " + list.size()/2);
                 median = list.get((list.size()/2));
-                //System.out.println("Median calculated : " + median);
             }
 
-            // calculating mean
-            //float average = running_sum/list.size();
-
-            // form an output "\t" + String.valueOf(average)
             String op = String.valueOf(minAge)  + "\t" + String.valueOf(median)+ "\t" + String.valueOf(maxAge);
             Text out = new Text(op);
 
-            // output country with min, avg, median and max age
             context.write(key, out);
 
         }

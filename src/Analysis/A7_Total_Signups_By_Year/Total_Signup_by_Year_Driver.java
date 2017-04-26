@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Analysis.A3_Total_Users_By_Gender;
+package Analysis.A7_Total_Signups_By_Year;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class User_Gender_Count_Driver {
+public class Total_Signup_by_Year_Driver {
 
     /**
      * @param args the command line arguments
@@ -28,12 +28,12 @@ public class User_Gender_Count_Driver {
     public static void main(String[] args) throws 
             IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Total Users available on Service");
-        job.setJarByClass(User_Gender_Count_Driver.class);
-        job.setMapperClass(User_Gender_Count_Mapper.class);
+        Job job = Job.getInstance(conf, "Total Signups by Year");
+        job.setJarByClass(Total_Signup_by_Year_Driver.class);
+        job.setMapperClass(Total_Signup_by_Year_Mapper.class);
 
-        job.setCombinerClass(User_Gender_Count_Reducer.class);
-        job.setReducerClass(User_Gender_Count_Reducer.class);
+        job.setCombinerClass(Total_Signup_by_Year_Reducer.class);
+        job.setReducerClass(Total_Signup_by_Year_Reducer.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

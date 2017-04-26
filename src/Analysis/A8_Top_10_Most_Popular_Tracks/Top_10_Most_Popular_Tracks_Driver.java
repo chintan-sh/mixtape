@@ -20,7 +20,7 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class Top_20_Most_Popular_Artist_Driver {
+public class Top_10_Most_Popular_Tracks_Driver {
 
     /**
      * @param args the command line arguments
@@ -29,14 +29,14 @@ public class Top_20_Most_Popular_Artist_Driver {
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Top 10 most popular tracks ");
-        job.setJarByClass(Top_20_Most_Popular_Artist_Driver.class);
+        job.setJarByClass(Top_10_Most_Popular_Tracks_Driver.class);
 
-        job.setMapperClass(Top_20_Most_Popular_Artist_Mapper.class);
+        job.setMapperClass(Top_10_Most_Popular_Tracks_Mapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
 
         job.setNumReduceTasks(1);
-        job.setReducerClass(Top_20_Most_Popular_Artist_Reducer.class);
+        job.setReducerClass(Top_10_Most_Popular_Tracks_Reducer.class);
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(IntWritable.class);
 

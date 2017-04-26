@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Analysis.A3_Total_Users_By_Gender;
+package Analysis.A7_Total_Signups_By_Year;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -15,18 +15,19 @@ import java.io.IOException;
  *
  * @author Chintan
  */
-public class User_Gender_Count_Mapper extends Mapper<Object, Text, Text, IntWritable> {
-    private Text gender;
+public class Total_Signup_by_Year_Mapper extends Mapper<Object, Text, Text, IntWritable> {
+    private Text year;
     private IntWritable one = new IntWritable(1);
 
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         // get user info
         String[] userInfo = value.toString().split("\t");
-        String userGender = userInfo[1];
+        String signupDate = userInfo[4].trim();
+        String signupYear = signupDate.split(",")[1];
 
-        // extract user gender
-        gender = new Text(userGender);
+        // extract signup year
+        year = new Text(signupYear);
 
-        context.write(gender, one);
+        context.write(year, one);
     }
 }
