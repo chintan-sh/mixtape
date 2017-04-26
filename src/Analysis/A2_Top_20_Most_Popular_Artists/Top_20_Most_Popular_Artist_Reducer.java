@@ -52,5 +52,7 @@ public class Top_20_Most_Popular_Artist_Reducer extends Reducer<Text, IntWritabl
             context.write(NullWritable.get(), new Text(value));
         }
     }
+
+
 }
 

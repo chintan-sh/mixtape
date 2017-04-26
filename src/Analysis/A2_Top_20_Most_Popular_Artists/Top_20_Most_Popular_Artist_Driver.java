@@ -36,6 +36,7 @@ public class Top_20_Most_Popular_Artist_Driver {
         job.setMapOutputValueClass(IntWritable.class);
 
         job.setNumReduceTasks(1);
+        job.setCombinerClass(Top_20_Most_Popular_Artist_Combiner.class);
         job.setReducerClass(Top_20_Most_Popular_Artist_Reducer.class);
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(IntWritable.class);
