@@ -5,4 +5,10 @@ out/
 input*/
 out*/
 big-data.iml
+/lib
+lib/
+lib*/
+archive/
+/archive
+archive*/
 
